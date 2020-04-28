@@ -1,36 +1,31 @@
 <template>
   <div id="app">
-    <img alt="Vue logo" src="./assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
     <button @click="handleClick">测试跨域请求</button>
+    <!-- <Login /> -->
+    <div>
+      <router-link to="/login">login</router-link>
+    </div>
+    <router-view></router-view>
   </div>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
-import request from './utils/request'
+import request from "./utils/request";
+// import Login from "./views/login/login";
 
 export default {
-  name: 'App',
+  name: "App",
   components: {
-    HelloWorld
+    // Login
   },
   methods: {
     handleClick() {
-      console.log('开始发送请求')
-      return request('/login')
+      console.log("开始发送请求");
+      return request("/login");
     }
   }
-}
+};
 </script>
 
 <style>
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
-}
 </style>
