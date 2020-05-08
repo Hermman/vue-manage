@@ -7,7 +7,11 @@ import Mutations from "./mutations";
 Vue.use(Vuex);
 
 const Store = new Vuex.Store({
-  state: {},
+  state: {
+    userinfo: {
+      user: "hermine",
+    },
+  },
   actions: Actions,
   getters: Getters,
   mutations: Mutations,

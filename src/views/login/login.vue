@@ -2,14 +2,14 @@
   <div class="login-wrap">
     <div class="login">
       <h3 class="login-title">vue 管理系统</h3>
-      <form action method="post">
+      <form action method="post" @submit.stop.prevent="onSubmit">
         <div class="use-wrap">
           <label for="username">用户名</label>
-          <input type="text" name="username" placeholder="请输入用户名" />
+          <input type="text" name="username" v-model="loginForm.username" placeholder="请输入用户名" />
         </div>
         <div class="pas-wrap">
           <label for="password">密码</label>
-          <input type="password" name="password" placeholder="请输入密码" />
+          <input type="password" name="password" v-model="loginForm.password" placeholder="请输入密码" />
         </div>
         <button class="btn btn-color" type="submit">登录</button>
       </form>
@@ -19,7 +19,27 @@
 
 <script>
 export default {
-  name: "login"
+  name: "login",
+  data() {
+    return {
+      loginForm: {
+        username: null,
+        password: null
+      }
+    };
+  },
+  methods: {
+    onSubmit() {
+      const { username, password } = this.loginForm;
+      if (username === null || password === null) {
+        alert("用户名或密码不能为空！");
+      } else if (username === "" || password === "") {
+        alert("用户名或密码不能为空！");
+      } else {
+        console.log("提交");
+      }
+    }
+  }
 };
 </script>
 

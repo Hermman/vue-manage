@@ -11,8 +11,7 @@ export default {
   name: "App",
   components: {},
   methods: {
-    handleClick() {
-      console.log("开始发送请求");
+    goLogin() {
       return request("/login");
     }
   }
