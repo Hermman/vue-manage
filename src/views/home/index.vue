@@ -1,35 +1,32 @@
 <template>
   <el-container>
-    <el-header>vue manage</el-header>
+    <el-header>
+      <Header />
+    </el-header>
     <el-container class="el-container">
       <el-aside width="200px">
         <side-bar></side-bar>
       </el-aside>
-      <el-main>Main</el-main>
+      <el-main></el-main>
     </el-container>
-    <!-- <Menu />
-    <div class="content-right">
-      <nav-top :userInfo="{ userinfo }"></nav-top>
-    </div>
-  </div> -->
   </el-container>
 </template>
 
 <script>
 import { mapState } from "vuex";
+import Header from "@/components/common/header";
 import sideBar from "@/components/sideBar";
-// import navTop from "@/components/nav-top/navTop";
 
 export default {
   name: "home",
   data() {
     return {
-      user: "hehe",
+      user: "hehe"
     };
   },
   components: {
-    "side-bar": sideBar,
-    // "nav-top": navTop,
+    Header,
+    "side-bar": sideBar
   },
   created() {
     const user = this.$store.state.userinfo.user;
@@ -38,8 +35,8 @@ export default {
     }
   },
   computed: {
-    ...mapState(["userinfo"]),
-  },
+    ...mapState(["userinfo"])
+  }
 };
 </script>
 
