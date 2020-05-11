@@ -7,7 +7,9 @@
       <el-aside width="200px">
         <side-bar></side-bar>
       </el-aside>
-      <el-main></el-main>
+      <el-main>
+        <router-view></router-view>
+      </el-main>
     </el-container>
   </el-container>
 </template>

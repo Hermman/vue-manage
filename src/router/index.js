@@ -1,33 +1,37 @@
 import Vue from "vue";
 import VueRouter from "vue-router";
-// import App from "../App";
-import Login from "../views/login/login";
-import Home from "../views/home";
-import VTable from "../views/table";
 
 Vue.use(VueRouter);
 
 const routes = [
   {
     path: "/",
-    redirect: "/home",
+    redirect: "/dashboard",
   },
   {
-    path: "/home",
+    path: "/",
     name: "home",
-    component: Home,
+    component: () => import(/* webpackChunkName: "home" */ "../views/home"),
     children: [
       {
+        path: "/dashboard",
+        component: () =>
+          import(/* webpackChunkName: "dashboard" */ "../views/dashboard"),
+        meta: { title: "系统首页" },
+      },
+      {
         path: "/table",
-        name: "v-table",
-        component: VTable,
+        component: () =>
+          import(/* webpackChunkName: "dashboard" */ "../views/table"),
+        meta: { title: "基础表格" },
       },
     ],
   },
   {
     path: "/login",
-    name: "login",
-    component: Login,
+    component: () =>
+      import(/* webpackChunkName: "dashboard" */ "../views/login/login"),
+    meta: { title: "登录页" },
   },
 ];
 

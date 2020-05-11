@@ -11,11 +11,7 @@
       router
     >
       <template v-for="item in menuList">
-        <el-menu-item
-          class="sidebar-menu-item"
-          :key="item.index"
-          :index="item.index"
-        >
+        <el-menu-item class="sidebar-menu-item" :key="item.index" :index="item.index">
           <i :class="item.icon"></i>
           <span slot="title">{{ item.title }}</span>
         </el-menu-item>
@@ -32,38 +28,38 @@ export default {
       collapse: false,
       menuList: [
         {
-          icon: "el-icon-s-home",
-          index: "home",
-          title: "首页",
+          icon: "el-icon-s-platform",
+          index: "dashboard",
+          title: "Dashboard"
         },
         {
           icon: "el-icon-s-grid",
           index: "table",
-          title: "基础表格",
+          title: "基础表格"
         },
         {
           icon: "el-icon-postcard",
           index: "tabs",
-          title: "tab选项卡",
+          title: "tab选项卡"
         },
         {
           icon: "el-icon-s-data",
           index: "chart",
-          title: "图表",
+          title: "图表"
         },
         {
           icon: "el-icon-setting",
           index: "setting",
-          title: "设置",
-        },
-      ],
+          title: "设置"
+        }
+      ]
     };
   },
   computed: {
     onRoutes() {
       return this.$route.path.replace("/", "");
-    },
-  },
+    }
+  }
 };
 </script>
 
