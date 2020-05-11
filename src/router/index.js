@@ -3,27 +3,26 @@ import VueRouter from "vue-router";
 // import App from "../App";
 import Login from "../views/login/login";
 import Home from "../views/home";
+import VTable from "../views/table";
 
 Vue.use(VueRouter);
 
 const routes = [
   {
     path: "/",
+    redirect: "/home",
+  },
+  {
+    path: "/home",
     name: "home",
     component: Home,
     children: [
       {
-        path: "/home",
-        name: "home",
-        component: Home,
+        path: "/table",
+        name: "v-table",
+        component: VTable,
       },
     ],
-  },
-  {
-    path: "/login",
-    component: () =>
-      import(/* webpackChunkName: "login" */ "../views/login/login.vue"),
-    meta: { title: "登录" },
   },
   {
     path: "/login",
